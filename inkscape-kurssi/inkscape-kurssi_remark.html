@@ -20,11 +20,11 @@
 
 class: center, middle
 
-# Inkscape
+# Inkscape & Laserleikkaus
 
-Ville Ranki <ville.ranki@iki.fi>
+Ville Ranki | <ville.ranki@iki.fi> | @cos:hacklab.fi
 
-Tampere Hacklab
+Tampere Hacklab 2020
 
 ---
 
@@ -59,7 +59,7 @@ Painotus laserleikkauksessa tarvittaviin asioihin!
 - Ei ammattilaistasoinen
 - Paljon plugineja (mm laserleikkaukseen)
 - Käyttää sisäisesti SVG-formaattia (+ importterit ja exportterit vaikka mihin)
-- Aktiivinen kehitys, uusin versio 0.91 (30. Tammikuuta 2015)
+- Aktiivinen kehitys, uusin versio 1.0.1 (6. Lokakuuta 2020)
 
 ---
 
@@ -105,7 +105,7 @@ Painotus laserleikkauksessa tarvittaviin asioihin!
 
 - File|Document properties
 - General: Default units: mm
-- Sivun koko
+- Sivun koko: Laserin leikkuuala 1300*900 mm
 
 ---
 
@@ -114,6 +114,8 @@ Painotus laserleikkauksessa tarvittaviin asioihin!
 - Joukko operaatioilla, joilla suljettuja patheja voi yhdistellä. 
 - Pathien syvyysjärjestyksellä on merkitystä joissain operaatioissa!
 - Demo
+
+![Boolen operaatiot](https://media.inkscape.org/media/doc/tutorials/advanced/advanced-f08-en.svg.png)
 
 ---
 
@@ -128,7 +130,7 @@ Painotus laserleikkauksessa tarvittaviin asioihin!
 
 # Bittikartta(rasteri)kuvat
 
-- LinuxCNC ei tue (tällä hetkellä) rasterikuvien piirtoa helposti
+- Laseroidessa kannattaa ladata erikseen bittikartta ja käyttää LaserWebin työkaluja
 - Bittikartan importtaus
 - Päälle piirtäminen
 - Trace bitmap
@@ -137,9 +139,9 @@ Painotus laserleikkauksessa tarvittaviin asioihin!
 
 # Laserleikkaus
 
-- Laserleikkuri vaatii g-koodimuoodossa olevat leikkauskomennot
-- G-koodi on (melko) laitekohtaista ja generoidaan inkscapella
-- G-kooditiedosto (.ngc) kiikutetaan leikkurille verkkolevyn kautta tai USB-tikulla
+- Laserleikkurissa on LaserWeb- niminen ohjaussovellus millä leikataan
+- Tiedostot (.svg, .png) kiikutetaan leikkurille verkkolevyn kautta tai USB-tikulla
+- LUE wikistä laserin käyttöohje etukäteen! https://wiki.tampere.hacklab.fi/tyokaluja/laserleikkuri
 
 ---
 
@@ -149,6 +151,7 @@ Painotus laserleikkauksessa tarvittaviin asioihin!
 - Jos teet reiän, tee siitä 0.05mm pienempi kuin haluat.
 - Tee kappaleista 0.05mm suurempia kuin haluat.
 - Jos haluat oikeasti tarkkaa, leikkaa materiaalista testikappale josta mittaat tarkat korjausarvot.
+- Huonolaatuisen vanerin paksuus voi vaihdella jonkin verran
 
 ---
 
@@ -163,9 +166,9 @@ Painotus laserleikkauksessa tarvittaviin asioihin!
 
 # Laserin parametrit
 
-- Tärkeimmät parametrit: leikkausteho ja -nopeus
-- Teho prosentteina
-- Nopeus mm/minuutti
+- Tärkeimmät parametrit: leikkausteho ja -nopeus.
+- Teho (power) prosentteina.
+- Nopeus (feed) mm/minuutti.
 
 ---
 
@@ -173,34 +176,16 @@ Painotus laserleikkauksessa tarvittaviin asioihin!
 
 - Järkevät arvot riippuvat materiaalista ja sen paksuudesta.
 - Esim 50% ja 500mm/min leikkaa 3-4mm vanerilevyä.
-- Esim 5% ja 500mm/min kaivertaa samaa.
-- Paksummille materiaaleille lisää tehoa ja/tai lisää nopeutta.
+- Esim 5% ja 100mm/min kaivertaa samaa.
+- Paksummille materiaaleille lisää tehoa ja/tai vähemmän nopeutta.
 - Nopeus max 1000mm/min, muuten alkaa terävät kulmat pyöristyä.
 - Mieluiten pienellä teholla ja hitaalla nopeudella. Säästää myös laserputkea ja peilejä!
 
 ---
 
-# G-koodin generointi laserille
-
-- Tarvitaan plugin
-- Pluginin asetukset
-- Asetukset löytyy myös wikistä, ei tarvi muistaa ulkoa
-
----
-
-# Pluginin käyttö
-
-- Kaiken oltava patheja.
-- Leikkausjärjestys layereillä, ylin ensin.
-- Layerin nimi: (leikkausteho %) [feed=(nopeus)].
-- esimerkiksi 50 [feed=600] leikkaa 50% teholla 600mm/min.
-- Huomaa: hakasulut (ei normisulut). Ei välilyöntejä feediarvoon.
-- Jos nämä puuttuu, käytetään defaulttiarvoja 10% ja 300mm/min.
-
----
-
 # Ennen leikkausta
 
+- (tee kopio tiedostosta, jos haluat vielä muokata objekteita!)
 - Valitse kaikki kaikilla layereillä (ctrl-alt-a)
 - Path | Object to path
 - Group | Ungroup
@@ -219,8 +204,8 @@ Painotus laserleikkauksessa tarvittaviin asioihin!
 
 # Kysyttävää?
 
-- http://tampere.hacklab.fi
-- IRC: #trehacklab @ IRCnet
+- https://tampere.hacklab.fi
+- Matrix: #tampere:hacklab.fi
 
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
